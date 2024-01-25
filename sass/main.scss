@@ -1,0 +1,365 @@
+@import './colors';
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+    background: $background-color;
+    
+}
+
+.header {
+  background: $header-color;
+  color: $color-white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 105px;
+
+  &__logo {
+    position: relative;
+    margin-left: 30px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(-20%, -54%);
+      width: 70px; 
+      height: 70px;
+      background-color: #303030;
+      border-radius: 50%;
+      z-index: -1;
+      transition: background-color 0.3s ease;
+    }
+
+    &:hover::before {
+      background-color: $hover;
+    }
+
+    img {
+      height: 40px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 30px;
+
+    &__task, &__name {
+      font-size: 1.25rem; 
+      letter-spacing: 2px;
+    }
+  }
+}
+
+
+
+.footer {
+  background: $footer-color;
+  color: $color-white;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 130px;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__text {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    margin: 0;
+    margin-left: 30px;
+    color: $background-color;
+    transition: border-color 0.3s ease;
+
+    span {
+      display: block;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -4px;
+        right: 18px;
+        bottom: -4px;
+        left: -7px;
+        border: 1px solid $background-color;
+        z-index: -1;
+        transition: border-color 0.3s ease;
+      }
+    }
+
+    &:hover {
+      color: #a2a8b8; 
+    }
+
+    &:hover span::before {
+      border: 1px solid $hover;
+      z-index: 99999;
+    }
+  }
+
+  &__middle {
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
+  }
+
+  &__nabthat {
+    display: none; 
+    position: relative;
+    padding: 0 20px; 
+    color: $background-color;
+
+    &::before,
+    &::after {
+      content: '______'; 
+      position: absolute;
+      top: 20%;
+      transform: translateY(-50%);
+    }
+
+    &::before {
+      left: -23px; 
+    }
+
+    &::after {
+      right: -23px; 
+    }
+  }
+
+  &__button {
+    background: none; 
+    color: #a2a8b8;
+    border: 1px solid $background-color;
+    padding: 10px 75px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 30px;
+  }
+}
+// Heading start 
+.centered-header {
+  text-align: center;
+  color: $color-white;
+  margin-top: 220px;
+  font-weight: 300;
+
+  span {
+    position: relative;
+    display: inline-block; 
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%; 
+      bottom: -10px;
+      width: 80%; 
+      height: 1px;
+      background: $color-white;
+      transform: translateX(-50%); 
+    }
+  }
+}
+// Heading end 
+.table-container {
+  margin-top: 100px; 
+  margin-bottom: 100px;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; 
+
+}
+
+.custom-table th, .custom-table td {
+  border: none; 
+  padding: 10px;
+  text-align: center;
+  color: $color-white;
+
+  
+}
+.custom-table td {
+  vertical-align: top; 
+}
+
+.custom-table th {
+  color: $color-white;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  max-width: 150px; 
+  padding-bottom: 50px;
+}
+
+.custom-table ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+  color: $color-white;
+}
+
+.custom-table button {
+  background: none;
+  color: #a2a8b8;
+  padding: 10px 55px;
+  border: 1px solid $color-white;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 10px;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+  &:hover {
+    background: linear-gradient(to right, #cd7301, #fe9e23);
+    color: $color-white;
+  }
+}
+
+.custom-table td:last-child {
+  text-align: center;
+  font-size: 16px;
+}
+
+.option {
+  padding-left: 50px;
+  position: relative;
+  line-height: 2.5em;
+  cursor: pointer;
+  margin-bottom: 10px;
+  color: $color-white;
+  text-align: left; 
+}
+
+.option::before {
+  content: '';
+  position: absolute;
+  left: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: none;
+  border-radius: 50%;
+  border: 2px solid $color-white;
+  transition: background 0.3s ease;
+}
+
+.option.selected {
+  font-weight: 600; 
+}
+.option.selected::before {
+  background: $color-white;
+  width: 13px; 
+  height: 13px; 
+  padding: 4px; 
+  background-clip: content-box;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+.content {
+  flex-grow: 1; 
+}
+// media 
+
+// Styl dla ekranów powyżej 480px
+@media (min-width: 480px) {
+  .header {
+    height: 115px;
+    &__logo::before {
+      width: 80px;
+      height: 80px;
+    }
+    &__logo img {
+      height: 50px;
+    }
+    &__text &__task, &__text &__name {
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+    }
+  }
+  .footer {
+    &__nabthat {
+      display: inline-block; 
+    }
+    &__text {
+      margin-left: 60px;
+    }
+    &__button {
+      margin-right: 60px;
+    }
+  }
+}
+
+// Styl dla ekranów powyżej 768px
+@media (min-width: 768px) {
+  .header {
+    height: 125px;
+    &__logo::before {
+      width: 90px;
+      height: 90px;
+    }
+    &__logo img {
+      height: 55px;
+    }
+    &__text &__task, &__text &__name {
+      font-size: 2rem;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+// Styl dla ekranów powyżej 960px
+@media (min-width: 960px) {
+  .header {
+    height: 140px;
+    &__logo {
+      margin-left: 60px;
+      &::before {
+        width: 100px;
+        height: 100px;
+      }
+      img {
+        height: 60px;
+      }
+    }
+    &__text {
+      margin-right: 60px;
+      
+      &__task,
+      &__name { 
+        font-size: 2rem;
+        letter-spacing: 2px;
+      }
+    }
+  }
+}
